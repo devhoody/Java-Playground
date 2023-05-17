@@ -7,12 +7,14 @@ public class DynamicGugudan {
 
 		System.out.println("원하는 단을 입력하세요.");
 
-		int N = sc.nextInt();
+		String inputValue = sc.nextLine();
+		String[] splitedValue = inputValue.split(",");
 		
-		int[] arr = new int[N];
+		int first = Integer.parseInt(splitedValue[0]);
+		int second = Integer.parseInt(splitedValue[1]);
 
-		for (int i = 2; i <= arr.length; i++) {
-			for (int j = 1; j <= arr.length; j++) {
+		for (int i = 2; i <= first; i++) {
+			for (int j = 1; j <= second; j++) {
 				System.out.printf("%d * %d = %d\n", i, j, i * j);
 			}
 		}
