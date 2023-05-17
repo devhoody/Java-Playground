@@ -6,7 +6,7 @@ public class Gugudan {
 		int i = 1;
 
 		while (i < 10) {
-			System.out.println(6 * i);
+			System.out.println(6 *i);
 			i++;
 		}
 
