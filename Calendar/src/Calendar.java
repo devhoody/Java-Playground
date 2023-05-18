@@ -25,6 +25,7 @@ public class Calendar {
 		int month = sc.nextInt();
 
 		System.out.printf("%d월은 %d일까지 있습니다. \n", month, cal.getMaxDaysOfMonth(month));
+		cal.printSampleCalendar();
 		sc.close();
 	}
 
