@@ -2,15 +2,18 @@ import java.util.Scanner;
 
 public class Calendar {
 
+	private static final int[] Max_Days = { 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 31, 31 };
+
+	public static int MaxDaysOfMonth(int month) {
+		return Max_Days[month-1];
+	}
+
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 		System.out.println("달을 입력하세요.");
 		int month = sc.nextInt();
-
-		int[] maxDays = { 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 31, 31 };
-
-		System.out.printf("%d월은 %d일까지 있습니다. \n", month, maxDays[month - 1]);
-
+		
+		System.out.println(MaxDaysOfMonth(month));
 		sc.close();
 
 //		System.out.println("일 월 화 수 목 금 토");
