@@ -2,7 +2,7 @@ import java.util.Scanner;
 
 public class Calendar {
 
-	private static final int[] Max_Days = { 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
+	private static final int[] Max_Days = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
 
 	public int getMaxDaysOfMonth(int month) {
 		int[] arr = new int[3];
