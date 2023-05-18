@@ -2,12 +2,28 @@ import java.util.Scanner;
 
 public class Calendar {
 
-	private static final int[] Max_Days = { 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 31, 31 };
+	private static final int[] Max_Days = { 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
 
 	public int getMaxDaysOfMonth(int month) {
-		return Max_Days[month - 1];
+		int[] arr = new int[3];
+
+		switch (month) {
+		case 2:
+			return 28;
+		case 4:
+			return 30;
+		case 6:
+			return 30;
+		case 9:
+			return 30;
+		case 11:
+			return 30;
+		default:
+			return 31;
+
+		}
 	}
-	
+
 	public void printSampleCalendar() {
 		System.out.println("일 월 화 수 목 금 토");
 		System.out.println("--------------------");
