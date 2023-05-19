@@ -5,23 +5,7 @@ public class Calendar {
 	private static final int[] Max_Days = { 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
 
 	public int getMaxDaysOfMonth(int month) {
-		int[] arr = new int[3];
-
-		switch (month) {
-		case 2:
-			return 28;
-		case 4:
-			return 30;
-		case 6:
-			return 30;
-		case 9:
-			return 30;
-		case 11:
-			return 30;
-		default:
-			return 31;
-
-		}
+		return Max_Days[month - 1];
 	}
 
 	public void printSampleCalendar() {
@@ -37,11 +21,18 @@ public class Calendar {
 		Scanner sc = new Scanner(System.in);
 		Calendar cal = new Calendar();
 
-		System.out.println("달을 입력하세요.");
-		int month = sc.nextInt();
+		System.out.println("반복횟수를 입력하세요.");
+		int times = sc.nextInt();
+		int[] month = new int[times];
 
-		System.out.printf("%d월은 %d일까지 있습니다. \n", month, cal.getMaxDaysOfMonth(month));
-		cal.printSampleCalendar();
+		System.out.println("달을 입력하세요.");
+		for (int i = 0; i < times; i++) {
+			month[i] = sc.nextInt();
+		}
+
+		for (int i = 0; i < month.length; i++) {
+			System.out.printf("%d월은 %d일까지 있습니다. \n", month[i], cal.getMaxDaysOfMonth(month[i]));
+		}
 
 		sc.close();
 	}
