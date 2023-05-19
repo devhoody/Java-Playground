@@ -18,21 +18,24 @@ public class Calendar {
 	}
 
 	public static void main(String[] args) {
+
+		String PROMPT = "cal>";
 		Scanner sc = new Scanner(System.in);
 		Calendar cal = new Calendar();
 
-		System.out.println("반복횟수를 입력하세요.");
-		int times = sc.nextInt();
-		int[] month = new int[times];
-
-		System.out.println("달을 입력하세요.");
-		for (int i = 0; i < times; i++) {
-			month[i] = sc.nextInt();
+		while (true) {
+			System.out.println("월을 입력하세요.");
+			System.out.println(PROMPT);
+			int month = sc.nextInt();
+			if (month == -1) {
+				break;
+			}
+			if (month > 12) {
+				continue;
+			}
+			System.out.printf("%d월은 %d일까지 있습니다.\n", month, cal.getMaxDaysOfMonth(month));
 		}
-
-		for (int i = 0; i < month.length; i++) {
-			System.out.printf("%d월은 %d일까지 있습니다. \n", month[i], cal.getMaxDaysOfMonth(month[i]));
-		}
+		System.out.println("Have a nice Day!");
 
 		sc.close();
 	}
