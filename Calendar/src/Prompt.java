@@ -2,25 +2,52 @@ import java.util.Scanner;
 
 public class Prompt {
 
+	public int parseDay(String week) {
+		if (week.equals("su"))
+			return 0;
+		if (week.equals("mo"))
+			return 1;
+		if (week.equals("tu"))
+			return 2;
+		if (week.equals("we"))
+			return 3;
+		if (week.equals("th"))
+			return 4;
+		if (week.equals("fr"))
+			return 5;
+		if (week.equals("sa"))
+			return 6;
+		else
+			return 0;
+	}
+
 	public void runPrompt() {
 		Scanner sc = new Scanner(System.in);
 		Calendar cal = new Calendar();
 
+		int year = 2023;
+		int month = 1;
+		int weekday = 0;
+
 		while (true) {
-			System.out.println("년도를 입력하세요.");
+			System.out.println("년도를 입력하세요.(exit : -1)");
 			System.out.println("YEAR > ");
-			int year = sc.nextInt();
+			year = sc.nextInt();
+			if (year == -1)
+				break;
 			System.out.println("월을 입력하세요.");
 			System.out.println("MONTH > ");
-			int month = sc.nextInt();
-			if (month == -1) {
-				break;
-			}
-			if (month > 12) {
+			month = sc.nextInt();
+			if (month > 12 || month < 1) {
+				System.out.println("잘못된 입력입니다.");
 				continue;
 			}
-			cal.printSampleCalendar(year, month);
-//			System.out.printf("%d월은 %d일까지 있습니다.\n", month, cal.getMaxDaysOfMonth(month));
+			System.out.println("첫번째 요일을 입력하세요.");
+			System.out.println("WEEKDAY > ");
+			String weekday_ = sc.next();
+			weekday = parseDay(weekday_);
+
+			cal.printSampleCalendar(year, month, weekday);
 		}
 		System.out.println("Have a nice Day!");
 
