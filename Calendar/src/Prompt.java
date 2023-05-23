@@ -42,12 +42,8 @@ public class Prompt {
 				System.out.println("잘못된 입력입니다.");
 				continue;
 			}
-			System.out.println("첫번째 요일을 입력하세요.");
-			System.out.println("WEEKDAY > ");
-			String weekday_ = sc.next();
-			weekday = parseDay(weekday_);
 
-			cal.printSampleCalendar(year, month, weekday);
+			cal.printSampleCalendar(year, month);
 		}
 		System.out.println("Have a nice Day!");
 
