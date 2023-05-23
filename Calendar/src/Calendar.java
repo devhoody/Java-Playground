@@ -20,33 +20,33 @@ public class Calendar {
 
 	private int getWeekDay(int year, int month, int day) {
 		int syear = 1970;
-		final int STANDARD_WEEKDAY = 3; // 1970/1/1/Thusday
-		
+		final int STANDARD_WEEKDAY = 4; // 1970/1/1/Thusday
+
 		int count = 0;
 
 		for (int i = syear; i < year; i++) {
 			int delta = isLeapYear(i) ? 366 : 365;
 			count += delta;
 		}
-		for (int i=1; i<month; i++) {
+		for (int i = 1; i < month; i++) {
 			int delta = getMaxDaysOfMonth(year, i);
 			count += delta;
 		}
-		
-		count += day;
+
+		count += day - 1;
 		int weekday = (count + STANDARD_WEEKDAY) % 7;
 		return weekday;
 	}
-	
-	//Simple test code 
+
+	// Simple test code
 	public static void main(String[] args) {
 		Calendar c = new Calendar();
-		System.out.println(c.getWeekDay(1970, 1, 1) == 3); 
-		System.out.println(c.getWeekDay(1971, 1, 1) == 4); 
-		System.out.println(c.getWeekDay(1972, 1, 1) == 5); 
-		System.out.println(c.getWeekDay(1973, 1, 1) == 0); 
-		System.out.println(c.getWeekDay(1974, 1, 1) == 1); 
-		
+		System.out.println(c.getWeekDay(1970, 1, 1) == 3);
+		System.out.println(c.getWeekDay(1971, 1, 1) == 4);
+		System.out.println(c.getWeekDay(1972, 1, 1) == 5);
+		System.out.println(c.getWeekDay(1973, 1, 1) == 0);
+		System.out.println(c.getWeekDay(1974, 1, 1) == 1);
+
 	}
 
 	public void printSampleCalendar(int year, int month) {
@@ -87,5 +87,4 @@ public class Calendar {
 		System.out.println();
 	}
 
-	
 }
